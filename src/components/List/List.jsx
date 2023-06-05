@@ -1,14 +1,13 @@
 import React from "react"
 import { nanoid } from 'nanoid'
 
-
-
 const List = ({ contacts }) =>
 (<ul>
-    {contacts.map(({ name }) =>(
+    {contacts.map(({ name, number }) =>(
         <li key={nanoid()}>
-            {name}
+            { name }: { number }
         </li>
     ))}
 </ul>)
+
 export default List;

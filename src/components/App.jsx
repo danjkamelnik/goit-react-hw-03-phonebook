@@ -4,17 +4,17 @@ import { Form } from "components/Form/Form"
 import List from "./List/List"
 
 export class App extends Component {
-
   state = {
     contacts: []
   }
 
   conctactId = nanoid();
 
-  newContact = name => {
+  addNewContact = (name, number) => {
     const contact = {
       id: nanoid(),
-      name
+      name,
+      number
     }
 
     this.setState(prevstate => ({
@@ -23,11 +23,11 @@ export class App extends Component {
   }
 
   render() {
-    const  {contacts} = this.state
+    const { contacts } = this.state
     return(
       <>
-        <Form onSubmit={this.newContact}/>
-        <List contacts={contacts}/>
+        <Form onSubmit={ this.addNewContact }/>
+        <List contacts={ contacts }/>
       </>
       )
   }

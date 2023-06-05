@@ -3,7 +3,8 @@ import { nanoid } from 'nanoid'
 
 export class Form extends Component {
   state = {
-    name: ''
+    name: '',
+    number: ''
   }
 
   inputId = nanoid();
@@ -16,12 +17,12 @@ export class Form extends Component {
   handleFormSubmit = (evt) => {
     evt.preventDefault()
     this.props.onSubmit(this.state.name)
-    this.setState({name: ''})
+    this.setState({name: '', number: ''})
   }
 
   render() {
 
-    const { name } = this.state;
+    const { name, number } = this.state;
     const { handleFormSubmit, handleInputChange } = this;
 
     return (
@@ -35,6 +36,18 @@ export class Form extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             id={this.inputId}
             value={name}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label htmlFor={this.inputId}>Number
+          <input
+            type="tel"
+            name="number"
+            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            id={this.inputId}
+            value={number}
             onChange={handleInputChange}
             required
           />
