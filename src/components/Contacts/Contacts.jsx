@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { nanoid } from 'nanoid'
+import { Form, Label, Input, Button } from './Contacts.styled'
 
-export class Form extends Component {
+export class Contacts extends Component {
   state = {
     name: '',
     number: ''
@@ -16,7 +17,7 @@ export class Form extends Component {
 
   handleFormSubmit = (evt) => {
     evt.preventDefault()
-    this.props.onSubmit(this.state.name)
+    this.props.onSubmit(this.state.name, this.state.number)
     this.setState({name: '', number: ''})
   }
 
@@ -26,34 +27,35 @@ export class Form extends Component {
     const { handleFormSubmit, handleInputChange } = this;
 
     return (
-      <form onSubmit={handleFormSubmit}>
-        <h1>Phonebook</h1>
-        <label htmlFor={this.inputId}>Name
-          <input
+      <Form onSubmit = { handleFormSubmit }>
+        <Label htmlFor = { this.inputId }>Name
+          <Input
             type="text"
             name="name"
             // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            id={this.inputId}
-            value={name}
-            onChange={handleInputChange}
+            id = { this.inputId }
+            value = { name }
+            onChange = { handleInputChange }
             required
+            placeholder="John Doe"
           />
-        </label>
-        <label htmlFor={this.inputId}>Number
-          <input
+        </Label>
+        <Label htmlFor = { this.inputId }>Number
+          <Input
             type="tel"
             name="number"
             // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            id={this.inputId}
-            value={number}
-            onChange={handleInputChange}
+            id = { this.inputId }
+            value = { number }
+            onChange = { handleInputChange }
             required
+            placeholder="000-00-00"
           />
-        </label>
-        <button type='submit'>Add new contact</button>
-      </form>
+        </Label>
+        <Button type='submit'>Add new contact</Button>
+      </Form>
     )
   }
 }
