@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
     width: 400px;
     padding: 50px;
     margin: 0 auto;
+    margin-top: 75px;
+    border: 1px solid #000;
 `;
 
 export const Title = styled.h1`
