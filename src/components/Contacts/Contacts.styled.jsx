@@ -7,7 +7,7 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-    padding-left: 15px;
+    padding-left: 40px;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -37,7 +37,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
     display: inline-block;
-    margin-left: 255px;
+    margin-left: 260px;
     border: none;
     outline: none;
     text-align: center;
@@ -45,7 +45,7 @@ export const Button = styled.button`
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    padding: 10px 16px;
+    padding: 6px 12px;
     border-radius: 100px;
     background: #2196F3;
     color: #fff;

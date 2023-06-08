@@ -33,13 +33,14 @@ export class Contacts extends Component {
           <Input
             type="text"
             name="name"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             id = { this.inputId }
             value = { name }
             onChange = { handleInputChange }
             required
             placeholder="John Doe"
+            maxlength="10"
           />
         </Label>
         <Label htmlFor = { this.inputId }>Number
