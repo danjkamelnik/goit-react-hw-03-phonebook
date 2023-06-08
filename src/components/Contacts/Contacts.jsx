@@ -55,13 +55,13 @@ export class Contacts extends Component {
             placeholder="000-00-00"
           />
         </Label>
-        <Button type='submit'>Add new contact</Button>
+        <Button type='submit'>Add contact</Button>
       </Form>
     )
   }
 }
 
 Contacts.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  number: PropTypes.string,
 };

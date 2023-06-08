@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Label = styled.label`
     width: 200px;
+    padding-left: 15px;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -24,7 +25,7 @@ export const Input = styled.input`
         border-bottom: 1px solid #2196F3; 
     }
     
-    &:placeholder {
-        color: #2196F3;
-        font-size: 40px;
+    &::placeholder {
+        font-size: 14px;
+    }
 `;

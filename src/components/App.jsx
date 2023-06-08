@@ -3,17 +3,13 @@ import { nanoid } from 'nanoid'
 import { Contacts } from "./Contacts/Contacts"
 import List from "./List/List"
 import { Filter } from "./Filter/Filter"
+import { Notification } from "./Notification/Notification"
 import { Wrapper, Title, SubTitle } from "./App.styled"
 
 
 export class App extends Component {
   state = {
-    contacts: [
-      {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-      {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-      {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-      {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-    ],
+    contacts: [],
     filter: ''
   }
 
@@ -46,6 +42,21 @@ export class App extends Component {
     this.setState({filter: evt.target.value})
   }
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   render() {
     const { filter } = this.state
 
@@ -60,7 +71,9 @@ export class App extends Component {
         <Contacts onSubmit = { this.addNewContact }/>
         <SubTitle>Contacts</SubTitle>
         <Filter value = { filter } onChange = { this.handleChangleFinder }/>
-        <List contacts = { visibleContacts } onDeleteContact = {this.deleteContact}/>
+        {this.state.contacts.length > 0 ? (
+          <List contacts = { visibleContacts } onDeleteContact = {this.deleteContact}/>
+        ) : (<Notification message = "You have no contacts" />)}
       </Wrapper>
     )
   }

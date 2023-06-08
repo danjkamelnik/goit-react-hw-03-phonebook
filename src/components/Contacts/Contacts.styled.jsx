@@ -7,6 +7,7 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
+    padding-left: 15px;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -29,15 +30,14 @@ export const Input = styled.input`
         border-bottom: 1px solid #2196F3;
     }
     
-    &:placeholder {
-        color: #2196F3;
-        font-size: 40px;
+    &::placeholder {
+        font-size: 14px;
     }
 `;
 
 export const Button = styled.button`
     display: inline-block;
-    margin-left: 230px;
+    margin-left: 255px;
     border: none;
     outline: none;
     text-align: center;
