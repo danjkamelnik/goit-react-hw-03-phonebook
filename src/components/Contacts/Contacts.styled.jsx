@@ -37,7 +37,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
     display: inline-block;
-    margin-left: 260px;
+    margin-left: 265px;
     border: none;
     outline: none;
     text-align: center;
@@ -45,7 +45,7 @@ export const Button = styled.button`
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 100px;
     background: #2196F3;
     color: #fff;
